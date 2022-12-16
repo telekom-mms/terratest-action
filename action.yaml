@@ -1,0 +1,21 @@
+---
+name: 'Terratest Action'
+description: 'Call Tests and get the results'
+inputs:
+  work_dir:
+    description: 'name of the directory where the action is located (./terratest-action)'
+    required: true
+    default: './terratest-action'
+  test:
+    description: 'name of the test to run (azure)'
+    required: true
+  debug:
+    description: 'should debug mode be enabled (true, false)'
+    required: false
+    default: 'false'
+outputs: {}
+runs:
+  using: 'composite'
+  steps:
+    - run: |
+        if [ \"${{ inputs.debug }}\" == \"true\" ]; then debug_mode='-v'; else debug_mode=''; fi && cd ${{ inputs.work_dir }} && go test $debug_mode ${{ inputs.test }}_test.go
