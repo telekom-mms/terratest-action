@@ -3,8 +3,8 @@ module tests
 go 1.19
 
 require (
-	github.com/gruntwork-io/terratest v0.41.0
-	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b
+	github.com/gruntwork-io/terratest v0.41.6
+	gopkg.in/yaml.v3 v3.0.1
 )
 
 require (
