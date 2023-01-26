@@ -18,4 +18,4 @@ runs:
   using: 'composite'
   steps:
     - run: |
-        if [ \"${{ inputs.debug }}\" == \"true\" ]; then debug_mode='-v'; else debug_mode=''; fi && cd ${{ inputs.work_dir }} && go test $debug_mode ${{ inputs.test }}_test.go
+        if [ \"${{ inputs.debug }}\" == \"true\" ]; then debug_mode='-v'; else debug_mode=''; fi && cd ${{ inputs.work_dir }} && go test $debug_mode terratest/${{ inputs.test }}_test.go

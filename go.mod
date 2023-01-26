@@ -1,4 +1,4 @@
-module tests
+module terratest-action
 
 go 1.19
 
