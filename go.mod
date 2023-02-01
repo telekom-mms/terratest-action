@@ -3,7 +3,7 @@ module terratest-action
 go 1.19
 
 require (
-	github.com/gruntwork-io/terratest v0.41.9
+	github.com/gruntwork-io/terratest v0.41.10
 	gopkg.in/yaml.v3 v3.0.1
 )
 
