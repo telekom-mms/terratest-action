@@ -13,6 +13,7 @@ outputs: {}
 runs:
   using: 'composite'
   steps:
-    - run: |
-        cd ${{ inputs.work_dir }} && go test -v terratest/${{ inputs.test }}_test.go
+    - run: >
+        cd ${{ inputs.work_dir }}
+        go test -v terratest/${{ inputs.test }}_test.go
       shell: bash
