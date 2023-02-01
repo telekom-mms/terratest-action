@@ -9,13 +9,9 @@ inputs:
   test:
     description: 'name of the test to run (azure)'
     required: true
-  debug:
-    description: 'should debug mode be enabled (true, false)'
-    required: false
-    default: 'false'
 outputs: {}
 runs:
   using: 'composite'
   steps:
     - run: |
-        if [ \"${{ inputs.debug }}\" == \"true\" ]; then debug_mode='-v'; else debug_mode=''; fi && cd ${{ inputs.work_dir }} && go test $debug_mode terratest/${{ inputs.test }}_test.go
+        cd ${{ inputs.work_dir }} && go test -v terratest/${{ inputs.test }}_test.go
