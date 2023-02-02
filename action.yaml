@@ -2,10 +2,6 @@
 name: 'Terratest Action'
 description: 'Call Tests and get the results'
 inputs:
-  work_dir:
-    description: 'name of the directory where the action is located (./terratest-action)'
-    required: true
-    default: './terratest-action'
   test:
     description: 'name of the test to run (azure)'
     required: true
@@ -13,5 +9,5 @@ outputs: {}
 runs:
   using: 'composite'
   steps:
-    - run: cd ${{ inputs.work_dir }} && go test -v terratest/${{ inputs.test }}_test.go
+    - run: cd ${{ github.action_path }} && go test -v terratest/${{ inputs.test }}_test.go
       shell: bash

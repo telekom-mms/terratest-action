@@ -37,10 +37,10 @@ func LogMiss(message string) {
 }
 
 func GetTestSettings() map[string]string {
-	os_path, _ := os.Getwd()
-	path := os_path + "/../../tests"
+	osPath, _ := os.Getwd()
+	path := osPath + "/../../tests"
 
-	log.Printf("%v", os_path)
+	log.Printf("%v", osPath)
 	log.Printf("%v", path)
 
 	settings := make(map[string]string)
