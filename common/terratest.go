@@ -15,17 +15,20 @@ type TerratestSettings struct {
 	Options   map[any]any `yaml:"options"`
 }
 
-func GetTerratestSettings(file string) TerratestSettings {
+func GetTerratestSettings(file string) *TerratestSettings {
 	f, err := os.Open(file)
 	if err != nil {
 		panic(err)
 	}
 	defer f.Close()
 
-	var settings *TerratestSettings
-	yaml.NewDecoder(f).Decode(&settings)
+	var settings TerratestSettings
+	err = yaml.NewDecoder(f).Decode(&settings)
+	if err != nil {
+		panic(err)
+	}
 
-	return *settings
+	return &settings
 }
 
 func AssertTrue(t *testing.T, exists bool) {

@@ -1,0 +1,8 @@
+---
+name: linting
+
+on: [push, pull_request]
+
+jobs:
+  call-linting:
+    uses: T-Systems-MMS/.github/.github/workflows/golang_linting.yml@main
