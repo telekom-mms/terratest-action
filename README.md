@@ -79,10 +79,8 @@ jobs:
 
 Actually the following test cases are supported:
 
-| test case               |
-| ----------------------- |
-| ContainerRegistryExists |
-| ContainerRegistryShow   |
+* ContainerRegistryExists
+* ContainerRegistryShow
 
 ## Examples
 
