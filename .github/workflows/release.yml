@@ -1,0 +1,11 @@
+---
+name: release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  call-release:
+    uses: T-Systems-MMS/.github/.github/workflows/release.yml@release

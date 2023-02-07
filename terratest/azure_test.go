@@ -68,7 +68,7 @@ func TestAzure(t *testing.T) {
 				exists := azure.ContainerRegistryExists(t, resourceName, resourceGroupName, subscriptionID)
 				common.AssertTrue(t, exists)
 
-			case "GetContainerRegistry":
+			case "ContainerRegistryShow":
 				common.AssertEqual(t, options, tfValues)
 
 			default:
