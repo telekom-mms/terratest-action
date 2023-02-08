@@ -43,14 +43,18 @@ jobs:
           ref: main
           path: ./terratest-action
         env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       ...
 
       - name: Run Test for ${{ matrix.example }} Setup
         uses: ./terratest-action
         with:
-          test: azure
+          test:  azure
+          azure_client_id: ${{ secrets.AZURE_CLIENT_ID }}
+          azure_client_secret: ${{ secrets.AZURE_CLIENT_SECRET }}
+          azure_subscription_id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          azure_tenant_id: ${{ secrets.AZURE_TENANT_ID }}
 ```
 
 ## Configuration
@@ -59,9 +63,13 @@ jobs:
 
 #### Inputs
 
-| name | description                          | required |
-| ---- | ------------------------------------ | -------- |
-| test | name of the test to run (e.g. azure) | true     |
+| name                  | description                                  | required |
+| --------------------- | -------------------------------------------- | -------- |
+| test                  | name of the test to run (e.g. azure)         | true     |
+| azure_client_id       | application id of azure ad application       | false    |
+| azure_client_secret   | application password of azure ad application | false    |
+| azure_subscription_id | azure subscription id                        | false    |
+| azure_tenant_id       | azure tenant id                              | false    |
 
 ### Terratest
 

@@ -1,12 +1,12 @@
 package terratest
 
 import (
-	"github.com/gruntwork-io/terratest/modules/azure"
-	"github.com/gruntwork-io/terratest/modules/terraform"
-	"os"
 	"strings"
 	"terratest-action/common"
 	"testing"
+
+	"github.com/gruntwork-io/terratest/modules/azure"
+	"github.com/gruntwork-io/terratest/modules/terraform"
 )
 
 func TestAzure(t *testing.T) {
@@ -15,6 +15,7 @@ func TestAzure(t *testing.T) {
 	common.LogColor("yellow", "Azure")
 
 	// get common test settings
+	azureCredentials := common.AzureAuthentication()
 	testSettings := common.GetTestSettings()
 	path := testSettings["path"]
 
@@ -25,7 +26,10 @@ func TestAzure(t *testing.T) {
 	// prepare Terratest Seetings
 	// website::tag::1:: Configure Terraform setting up a path to Terraform code.
 	terraformOptions := &terraform.Options{
+		// path to code that will be tested
 		TerraformDir: path,
+		// globalvariables for user account
+		EnvVars: azureCredentials,
 	}
 
 	// unit tests
@@ -60,7 +64,7 @@ func TestAzure(t *testing.T) {
 
 			resourceGroupName := common.GetValue(tfValues, "resource_group_name")
 			resourceName := common.GetValue(tfValues, "name")
-			subscriptionID := os.Getenv("ARM_SUBSCRIPTION_ID")
+			subscriptionID := azureCredentials["ARM_SUBSCRIPTION_ID"]
 
 			// website::tag::4:: Assert
 			switch function {
