@@ -1,6 +1,6 @@
 module terratest-action
 
-go 1.19
+go 1.20
 
 require (
 	github.com/gruntwork-io/terratest v0.41.10

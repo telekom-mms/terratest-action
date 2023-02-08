@@ -9,6 +9,10 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+var (
+	globalEnvVars = make(map[string]string)
+)
+
 type TerratestSettings struct {
 	Package   string      `yaml:"package"`
 	Functions []string    `yaml:"functions"`
@@ -29,6 +33,16 @@ func GetTerratestSettings(file string) *TerratestSettings {
 	}
 
 	return &settings
+}
+
+func AzureAuthentication() map[string]string {
+	// Getting enVars from environment variables
+	globalEnvVars["ARM_CLIENT_ID"] = os.Getenv("AZURE_CLIENT_ID")
+	globalEnvVars["ARM_CLIENT_SECRET"] = os.Getenv("AZURE_CLIENT_SECRET")
+	globalEnvVars["ARM_SUBSCRIPTION_ID"] = os.Getenv("AZURE_SUBSCRIPTION_ID")
+	globalEnvVars["ARM_TENANT_ID"] = os.Getenv("AZURE_TENANT_ID")
+
+	return globalEnvVars
 }
 
 func AssertTrue(t *testing.T, exists bool) {
