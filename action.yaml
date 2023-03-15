@@ -5,6 +5,9 @@ inputs:
   test:
     description: 'name of the test to run (azure)'
     required: true
+  TEST_TYPE:
+    description: 'run unit and integration tests, set to unit if integration tests should be skipped'
+    required: false
   azure_client_id:
     description: 'application id'
     required: true
@@ -24,6 +27,7 @@ runs:
     - run: cd ${{ github.action_path }} && go test -v terratest/${{ inputs.test }}_test.go
       shell: bash
       env:
+        TEST_TYPE: ${{ inputs.test_type }}
         AZURE_CLIENT_ID: ${{ inputs.azure_client_id }}
         AZURE_CLIENT_SECRET: ${{ inputs.azure_client_secret }}
         AZURE_SUBSCRIPTION_ID: ${{ inputs.azure_subscription_id }}

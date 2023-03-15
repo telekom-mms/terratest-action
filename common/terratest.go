@@ -10,7 +10,8 @@ import (
 )
 
 var (
-	globalEnvVars = make(map[string]string)
+	testEnvVars = make(map[string]string)
+	authEnvVars = make(map[string]string)
 )
 
 type TerratestSettings struct {
@@ -35,14 +36,21 @@ func GetTerratestSettings(file string) *TerratestSettings {
 	return &settings
 }
 
+func TestSetup() map[string]string {
+	// Getting enVars from environment variables
+	testEnvVars["TEST_TYPE"] = os.Getenv("TEST_TYPE")
+
+	return testEnvVars
+}
+
 func AzureAuthentication() map[string]string {
 	// Getting enVars from environment variables
-	globalEnvVars["ARM_CLIENT_ID"] = os.Getenv("AZURE_CLIENT_ID")
-	globalEnvVars["ARM_CLIENT_SECRET"] = os.Getenv("AZURE_CLIENT_SECRET")
-	globalEnvVars["ARM_SUBSCRIPTION_ID"] = os.Getenv("AZURE_SUBSCRIPTION_ID")
-	globalEnvVars["ARM_TENANT_ID"] = os.Getenv("AZURE_TENANT_ID")
+	authEnvVars["ARM_CLIENT_ID"] = os.Getenv("AZURE_CLIENT_ID")
+	authEnvVars["ARM_CLIENT_SECRET"] = os.Getenv("AZURE_CLIENT_SECRET")
+	authEnvVars["ARM_SUBSCRIPTION_ID"] = os.Getenv("AZURE_SUBSCRIPTION_ID")
+	authEnvVars["ARM_TENANT_ID"] = os.Getenv("AZURE_TENANT_ID")
 
-	return globalEnvVars
+	return authEnvVars
 }
 
 func AssertTrue(t *testing.T, exists bool) {
