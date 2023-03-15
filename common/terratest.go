@@ -38,7 +38,7 @@ func GetTerratestSettings(file string) *TerratestSettings {
 
 func TestSetup() map[string]string {
 	// Getting enVars from environment variables
-	testEnvVars["TEST_STACK"] = os.Getenv("TEST_STACK")
+	testEnvVars["TEST_TYPE"] = os.Getenv("TEST_TYPE")
 
 	return testEnvVars
 }

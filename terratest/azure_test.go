@@ -36,7 +36,7 @@ func TestAzure(t *testing.T) {
 	terraform.InitAndPlan(t, terraformOptions)
 
 	// integration tests
-	if testSetup["TEST_STACK"] != "unit" {
+	if testSetup["TEST_TYPE"] != "unit" {
 		// get terratest settings for integration test
 		terratestSettings := path + "/terratest.yaml"
 		settings := common.GetTerratestSettings(terratestSettings)
