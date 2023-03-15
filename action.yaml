@@ -5,7 +5,7 @@ inputs:
   test:
     description: 'name of the test to run (azure)'
     required: true
-  TEST_TYPE:
+  test_type:
     description: 'run unit and integration tests, set to unit if integration tests should be skipped'
     required: false
   azure_client_id:
