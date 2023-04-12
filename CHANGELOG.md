@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.1](https://github.com/T-Systems-MMS/terratest-action/tree/1.0.1) (2023-04-12)
+
+[Full Changelog](https://github.com/T-Systems-MMS/terratest-action/compare/1.0.0...1.0.1)
+
+**Closed issues:**
+
+- Dependency Dashboard [\#3](https://github.com/T-Systems-MMS/terratest-action/issues/3)
+
 ## [1.0.0](https://github.com/T-Systems-MMS/terratest-action/tree/1.0.0) (2023-02-09)
 
 [Full Changelog](https://github.com/T-Systems-MMS/terratest-action/compare/74d6ba466ba49948f2f09ba500c74394bf832de2...1.0.0)
