@@ -1,24 +1,24 @@
 # Changelog
 
-## [1.0.1](https://github.com/T-Systems-MMS/terratest-action/tree/1.0.1) (2023-04-12)
+## [1.0.1](https://github.com/telekom-mms/terratest-action/tree/1.0.1) (2023-04-12)
 
-[Full Changelog](https://github.com/T-Systems-MMS/terratest-action/compare/1.0.0...1.0.1)
+[Full Changelog](https://github.com/telekom-mms/terratest-action/compare/1.0.0...1.0.1)
 
 **Closed issues:**
 
-- Dependency Dashboard [\#3](https://github.com/T-Systems-MMS/terratest-action/issues/3)
+- Dependency Dashboard [\#3](https://github.com/telekom-mms/terratest-action/issues/3)
 
-## [1.0.0](https://github.com/T-Systems-MMS/terratest-action/tree/1.0.0) (2023-02-09)
+## [1.0.0](https://github.com/telekom-mms/terratest-action/tree/1.0.0) (2023-02-09)
 
-[Full Changelog](https://github.com/T-Systems-MMS/terratest-action/compare/74d6ba466ba49948f2f09ba500c74394bf832de2...1.0.0)
+[Full Changelog](https://github.com/telekom-mms/terratest-action/compare/74d6ba466ba49948f2f09ba500c74394bf832de2...1.0.0)
 
 **Merged pull requests:**
 
-- Update module github.com/stretchr/testify to v1.8.1 [\#6](https://github.com/T-Systems-MMS/terratest-action/pull/6) ([renovate[bot]](https://github.com/apps/renovate))
-- Update module github.com/gruntwork-io/terratest to v0.41.10 [\#5](https://github.com/T-Systems-MMS/terratest-action/pull/5) ([renovate[bot]](https://github.com/apps/renovate))
-- Update module github.com/gruntwork-io/terratest to v0.41.9 [\#4](https://github.com/T-Systems-MMS/terratest-action/pull/4) ([renovate[bot]](https://github.com/apps/renovate))
-- Update module gopkg.in/yaml.v3 to v3.0.1 [\#2](https://github.com/T-Systems-MMS/terratest-action/pull/2) ([renovate[bot]](https://github.com/apps/renovate))
-- Update module github.com/gruntwork-io/terratest to v0.41.6 [\#1](https://github.com/T-Systems-MMS/terratest-action/pull/1) ([renovate[bot]](https://github.com/apps/renovate))
+- Update module github.com/stretchr/testify to v1.8.1 [\#6](https://github.com/telekom-mms/terratest-action/pull/6) ([renovate[bot]](https://github.com/apps/renovate))
+- Update module github.com/gruntwork-io/terratest to v0.41.10 [\#5](https://github.com/telekom-mms/terratest-action/pull/5) ([renovate[bot]](https://github.com/apps/renovate))
+- Update module github.com/gruntwork-io/terratest to v0.41.9 [\#4](https://github.com/telekom-mms/terratest-action/pull/4) ([renovate[bot]](https://github.com/apps/renovate))
+- Update module gopkg.in/yaml.v3 to v3.0.1 [\#2](https://github.com/telekom-mms/terratest-action/pull/2) ([renovate[bot]](https://github.com/apps/renovate))
+- Update module github.com/gruntwork-io/terratest to v0.41.6 [\#1](https://github.com/telekom-mms/terratest-action/pull/1) ([renovate[bot]](https://github.com/apps/renovate))
 
 
 
