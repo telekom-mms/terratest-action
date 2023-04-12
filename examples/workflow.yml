@@ -35,7 +35,7 @@ jobs:
       - name: Checkout Github Action
         uses: actions/checkout@v3
         with:
-          repository: T-Systems-MMS/terratest-action
+          repository: telekom-mms/terratest-action
           ref: main
           path: ./terratest-action
         env:

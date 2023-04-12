@@ -5,4 +5,4 @@ on: [push, pull_request]
 
 jobs:
   call-linting:
-    uses: T-Systems-MMS/.github/.github/workflows/golang_linting.yml@main
+    uses: telekom-mms/.github/.github/workflows/golang_linting.yml@main
