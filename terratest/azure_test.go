@@ -30,18 +30,20 @@ func TestAzure(t *testing.T) {
 	}
 
 	// unit tests
-	common.LogColor("yellow", "Unit Test")
+	if testSetup["TEST_TYPE"] == "unit" {
+		common.LogColor("yellow", "Unit Test")
 
-	// website::tag::2:: Run `terraform init` and `terraform plan`. Fail the test if there are any errors.
-	terraform.InitAndPlan(t, terraformOptions)
+		// website::tag::2:: Run `terraform init` and `terraform plan`. Fail the test if there are any errors.
+		terraform.InitAndPlan(t, terraformOptions)
+	}
 
 	// integration tests
-	if testSetup["TEST_TYPE"] != "unit" {
+	if testSetup["TEST_TYPE"] == "integration" {
+		common.LogColor("yellow", "Integration Test")
+
 		// get terratest settings for integration test
 		terratestSettings := path + "/terratest.yaml"
 		settings := common.GetTerratestSettings(terratestSettings)
-
-		common.LogColor("yellow", "Integration Test")
 
 		// website::tag::5:: At the end of the test, run `terraform destroy` to clean up any resources that were created
 		defer terraform.Destroy(t, terraformOptions)
