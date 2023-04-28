@@ -1,12 +1,32 @@
 # Changelog
 
-## [1.0.1](https://github.com/telekom-mms/terratest-action/tree/1.0.1) (2023-04-26)
+## [1.0.2](https://github.com/telekom-mms/terratest-action/tree/1.0.2) (2023-04-28)
 
-[Full Changelog](https://github.com/telekom-mms/terratest-action/compare/1.0.0...1.0.1)
+[Full Changelog](https://github.com/telekom-mms/terratest-action/compare/1.0.1...1.0.2)
 
 **Closed issues:**
 
 - Dependency Dashboard [\#3](https://github.com/telekom-mms/terratest-action/issues/3)
+
+## [1.0.1](https://github.com/telekom-mms/terratest-action/tree/1.0.1) (2023-04-26)
+
+[Full Changelog](https://github.com/telekom-mms/terratest-action/compare/1.0.0...1.0.1)
+
+**Implemented enhancements:**
+
+- enhencement split unit and integration tests for azure [\#13](https://github.com/telekom-mms/terratest-action/pull/13) ([michaelamattes](https://github.com/michaelamattes))
+- add option to run only unit test [\#9](https://github.com/telekom-mms/terratest-action/pull/9) ([michaelamattes](https://github.com/michaelamattes))
+
+**Fixed bugs:**
+
+- fix caps failure [\#10](https://github.com/telekom-mms/terratest-action/pull/10) ([michaelamattes](https://github.com/michaelamattes))
+
+**Merged pull requests:**
+
+- Update module github.com/gruntwork-io/terratest to v0.41.19 [\#12](https://github.com/telekom-mms/terratest-action/pull/12) ([renovate[bot]](https://github.com/apps/renovate))
+- change company name [\#11](https://github.com/telekom-mms/terratest-action/pull/11) ([michaelamattes](https://github.com/michaelamattes))
+- Update module github.com/stretchr/testify to v1.8.2 [\#8](https://github.com/telekom-mms/terratest-action/pull/8) ([renovate[bot]](https://github.com/apps/renovate))
+- Update module github.com/gruntwork-io/terratest to v0.41.18 [\#7](https://github.com/telekom-mms/terratest-action/pull/7) ([renovate[bot]](https://github.com/apps/renovate))
 
 ## [1.0.0](https://github.com/telekom-mms/terratest-action/tree/1.0.0) (2023-02-09)
 
