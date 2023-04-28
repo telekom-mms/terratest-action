@@ -1,12 +1,12 @@
 package terratest
 
 import (
+	"github.com/gruntwork-io/terratest/modules/azure"
+	"github.com/gruntwork-io/terratest/modules/terraform"
+	"strconv"
 	"strings"
 	"terratest-action/common"
 	"testing"
-
-	"github.com/gruntwork-io/terratest/modules/azure"
-	"github.com/gruntwork-io/terratest/modules/terraform"
 )
 
 func TestAzure(t *testing.T) {
@@ -62,25 +62,44 @@ func TestAzure(t *testing.T) {
 
 				// website::tag::3:: Run `terraform show` to get the values after build
 				tfShow := terraform.Show(t, terraformOptions)
-
-				jsonQuery := "values.root_module.child_modules.#.resources.#.values"
-				tfValues := common.GetValues(tfShow, jsonQuery)
-
-				resourceGroupName := common.GetValue(tfValues, "resource_group_name")
-				resourceName := common.GetValue(tfValues, "name")
 				subscriptionID := azureCredentials["ARM_SUBSCRIPTION_ID"]
 
 				// website::tag::4:: Assert
-				switch function {
-				case "ContainerRegistryExists":
-					exists := azure.ContainerRegistryExists(t, resourceName, resourceGroupName, subscriptionID)
-					common.AssertTrue(t, exists)
+				getAzureTestSetting := common.GetAzureTestSetting(function)
+				tfValues := common.GetAllValues(tfShow, getAzureTestSetting)
+				tfIndex := common.GetIndex(tfValues)
 
-				case "ContainerRegistryShow":
-					common.AssertEqual(t, options, tfValues)
+				for i := uint64(0); i < tfIndex; i++ {
+					// convert int to string, needed as string for GetValue regex
+					idx := strconv.FormatUint(uint64(i), 10)
 
-				default:
-					common.LogMiss(function)
+					resourceValues := common.GetValues(tfValues, idx)
+					resourceGroupName := common.GetValue(resourceValues, "resource_group_name")
+					resourceName := common.GetValue(resourceValues, "name")
+
+					common.LogColor("green", resourceName)
+
+					switch function {
+					case "ContainerRegistryExists":
+						exists := azure.ContainerRegistryExists(t, resourceName, resourceGroupName, subscriptionID)
+						common.AssertTrue(t, exists)
+					case "ContainerRegistryShow":
+						common.AssertEqual(t, options, resourceValues)
+					case "VirtualNetworkExists":
+						exists := azure.VirtualNetworkExists(t, resourceName, resourceGroupName, subscriptionID)
+						common.AssertTrue(t, exists)
+					case "SubnetExists":
+						virtualNetworkName := common.GetValue(resourceValues, "virtual_network_name")
+						exists := azure.SubnetExists(t, resourceName, virtualNetworkName, resourceGroupName, subscriptionID)
+						common.AssertTrue(t, exists)
+					case "PublicAddressExists":
+						exists := azure.PublicAddressExists(t, resourceName, resourceGroupName, subscriptionID)
+						common.AssertTrue(t, exists)
+					case "PublicAddressShow":
+						common.AssertEqual(t, options, resourceValues)
+					default:
+						common.LogMiss(function)
+					}
 				}
 			}
 		}

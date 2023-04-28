@@ -1,0 +1,34 @@
+---
+name: 'Terratest Action'
+description: 'Call Tests and get the results'
+inputs:
+  test:
+    description: 'name of the test to run (azure)'
+    required: true
+  test_type:
+    description: 'run unit and integration tests, set to unit if integration tests should be skipped'
+    required: false
+  azure_client_id:
+    description: 'application id'
+    required: true
+  azure_client_secret:
+    description: 'application password'
+    required: false
+  azure_subscription_id:
+    description: 'subscription id'
+    required: false
+  azure_tenant_id:
+    description: 'tenant id'
+    required: false
+outputs: {}
+runs:
+  using: 'composite'
+  steps:
+    - run: cd ${{ github.action_path }} && go test -v terratest/${{ inputs.test }}_test.go
+      shell: bash
+      env:
+        TEST_TYPE: ${{ inputs.test_type }}
+        AZURE_CLIENT_ID: ${{ inputs.azure_client_id }}
+        AZURE_CLIENT_SECRET: ${{ inputs.azure_client_secret }}
+        AZURE_SUBSCRIPTION_ID: ${{ inputs.azure_subscription_id }}
+        AZURE_TENANT_ID: ${{ inputs.azure_tenant_id }}
