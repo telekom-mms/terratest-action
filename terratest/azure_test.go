@@ -97,6 +97,9 @@ func TestAzure(t *testing.T) {
 						common.AssertTrue(t, exists)
 					case "PublicAddressShow":
 						common.AssertEqual(t, options, resourceValues)
+					case "NetworkInterfaceExists":
+						exists := azure.NetworkInterfaceExists(t, resourceName, resourceGroupName, subscriptionID)
+						common.AssertTrue(t, exists)
 					default:
 						common.LogMiss(function)
 					}

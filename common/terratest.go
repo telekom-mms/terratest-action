@@ -70,6 +70,8 @@ func GetAzureTestSetting(testcase string) string {
 		resource = "azurerm_public_ip"
 	case "PublicAddressShow":
 		resource = "azurerm_public_ip"
+	case "NetworkInterfaceExists":
+		resource = "azurerm_network_interface"
 	default:
 		LogMiss(testcase)
 	}

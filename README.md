@@ -94,7 +94,8 @@ Actually the following test cases are supported:
 * VirtualNetworkExists
 * SubnetExists
 * PublicAddressExists
-* PublicAddressShow"
+* PublicAddressShow
+* NetworkInterfaceExists
 
 ## Examples
 
