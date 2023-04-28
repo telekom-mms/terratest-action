@@ -91,6 +91,10 @@ Actually the following test cases are supported:
 
 * ContainerRegistryExists
 * ContainerRegistryShow
+* VirtualNetworkExists
+* SubnetExists
+* PublicAddressExists
+* PublicAddressShow"
 
 ## Examples
 

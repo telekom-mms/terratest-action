@@ -1,5 +1,0 @@
-functions: ["ContainerRegistryExists", "ContainerRegistryShow"]
-options:
-  ContainerRegistryShow:
-    admin_enabled: false
-    network_rule_bypass_option: None
