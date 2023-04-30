@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.0.2](https://github.com/telekom-mms/terratest-action/tree/1.0.2) (2023-04-28)
+## [1.0.2](https://github.com/telekom-mms/terratest-action/tree/1.0.2) (2023-04-30)
 
 [Full Changelog](https://github.com/telekom-mms/terratest-action/compare/1.0.1...1.0.2)
 
