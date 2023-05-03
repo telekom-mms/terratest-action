@@ -29,19 +29,19 @@ func TestAzure(t *testing.T) {
 		EnvVars: azureCredentials,
 	}
 
-	// unit tests
-	if testSetup["TEST_TYPE"] == "unit" {
-		common.LogColor("yellow", "Unit Test")
+	// plan tests
+	if testSetup["TEST_TYPE"] == "plan" {
+		common.LogColor("yellow", "plan")
 
 		// website::tag::2:: Run `terraform init` and `terraform plan`. Fail the test if there are any errors.
 		terraform.InitAndPlan(t, terraformOptions)
 	}
 
-	// integration tests
-	if testSetup["TEST_TYPE"] == "integration" {
-		common.LogColor("yellow", "Integration Test")
+	// apply tests
+	if testSetup["TEST_TYPE"] == "apply" {
+		common.LogColor("yellow", "apply")
 
-		// get terratest settings for integration test
+		// get terratest settings for apply test
 		terratestSettings := path + "/terratest.yaml"
 		settings := common.GetTerratestSettings(terratestSettings)
 
