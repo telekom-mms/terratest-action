@@ -65,8 +65,8 @@ func TestAzure(t *testing.T) {
 				subscriptionID := azureCredentials["ARM_SUBSCRIPTION_ID"]
 
 				// website::tag::4:: Assert
-				getAzureTestSetting := common.GetAzureTestSetting(function)
-				tfValues := common.GetAllValues(tfShow, getAzureTestSetting)
+				azureTestSetting := common.GetAzureTestSetting(function)
+				tfValues := common.GetAllValues(tfShow, azureTestSetting)
 				tfIndex := common.GetIndex(tfValues)
 
 				for i := uint64(0); i < tfIndex; i++ {

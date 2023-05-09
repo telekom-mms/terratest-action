@@ -51,7 +51,7 @@ jobs:
         uses: ./terratest-action
         with:
           test:  azure
-          test_type: unit
+          test_type: plan
           azure_client_id: ${{ secrets.AZURE_CLIENT_ID }}
           azure_client_secret: ${{ secrets.AZURE_CLIENT_SECRET }}
           azure_subscription_id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
@@ -64,14 +64,14 @@ jobs:
 
 #### Inputs
 
-| name                  | description                                                                         | required |
-| --------------------- | ----------------------------------------------------------------------------------- | -------- |
-| test                  | name of the test to run (e.g. azure)                                                | true     |
-| test_type            | run unit and integration tests, set to `unit` if integration tests should be skipped | false    |
-| azure_client_id       | application id of azure ad application                                              | false    |
-| azure_client_secret   | application password of azure ad application                                        | false    |
-| azure_subscription_id | azure subscription id                                                               | false    |
-| azure_tenant_id       | azure tenant id                                                                     | false    |
+| name                  | description                                  | required |
+| --------------------- | ---------------------------------------------| -------- |
+| test                  | name of the test to run (e.g. azure)         | true     |
+| test_type             | which test case should be run, plan or apply | true     |
+| azure_client_id       | application id of azure ad application       | false    |
+| azure_client_secret   | application password of azure ad application | false    |
+| azure_subscription_id | azure subscription id                        | false    |
+| azure_tenant_id       | azure tenant id                              | false    |
 
 ### Terratest
 
@@ -82,10 +82,15 @@ jobs:
 
 #### azure
 
-| test case | description                                                                       |
-| ----------| --------------------------------------------------------------------------------- |
-| .*Exists  | check if terraform resource exist, could be created                               |
-| .*Show    | check if created terraform resource matches the conditions that should be checked |
+test case
+
+* *Exists
+  * description: check if terraform resource exist
+  * explanation: a true / false boolean check if the resource could be created
+
+* *Show
+  * description: check if created terraform resource matches the conditions that should be checked
+  * explanation: runs a terraform show of the created resource and checks if the conditions matches the conditions defined over `options`
 
 Actually the following test cases are supported:
 
