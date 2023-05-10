@@ -88,8 +88,7 @@ test case
   * description: check if the terraformresource was created. Returns true or false
 
 * *Show
-  * description: check if created terraform resource matches the conditions that should be checked
-  * explanation: runs a terraform show of the created resource and checks if the conditions matches the conditions defined over `options`
+  * description: runs a terraform show on the created resource and checks if the results matches the test-conditions defined in `options`
 
 Actually the following test cases are supported:
 
