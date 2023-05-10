@@ -53,33 +53,63 @@ func AzureAuthentication() map[string]string {
 	return authEnvVars
 }
 
+func GetAzureTestSetting(testcase string) string {
+
+	var resource string
+
+	switch testcase {
+	case "ContainerRegistryExists":
+		resource = "azurerm_container_registry"
+	case "ContainerRegistryShow":
+		resource = "azurerm_container_registry"
+	case "VirtualNetworkExists":
+		resource = "azurerm_virtual_network"
+	case "SubnetExists":
+		resource = "azurerm_subnet"
+	case "PublicAddressExists":
+		resource = "azurerm_public_ip"
+	case "PublicAddressShow":
+		resource = "azurerm_public_ip"
+	case "NetworkInterfaceExists":
+		resource = "azurerm_network_interface"
+	default:
+		LogMiss(testcase)
+	}
+
+	return resource
+}
+
 func AssertTrue(t *testing.T, exists bool) {
 	assert.True(t, exists)
 }
 
 func AssertEqual(t *testing.T, options any, values string) {
 	for key, value := range options.(map[string]interface{}) {
-		jsonValue := gjson.Get(values, key).Value()
+		jsonValue := gjson.Get(gjson.Get(values, "{#."+key+"}").String(), ""+key+".0").Value()
 		assert.Equal(t, value, jsonValue)
 	}
 }
 
-func GetValues(json string, jsonQuery string) string {
-	jsonValues := gjson.Get(json, jsonQuery)
+func GetAllValues(json string, resource string) string {
+	getAllValues := gjson.Get(json, "values.root_module.child_modules.#.resources.#(type=\""+resource+"\")#.values")
 
-	var getValues string
-
-	for _, array1 := range jsonValues.Array() {
-		for _, array2 := range array1.Array() {
-			getValues = array2.String()
-		}
-	}
-
-	return getValues
+	return getAllValues.String()
 }
 
-func GetValue(json string, jsonQuery string) string {
-	getValue := gjson.Get(json, jsonQuery).String()
+func GetValues(json string, idx string) string {
+	getValues := gjson.Get(json, "#."+idx+"")
 
-	return getValue
+	return getValues.String()
+}
+
+func GetValue(json string, value string) string {
+	getValue := gjson.Get(gjson.Get(json, "{#."+value+"}").String(), ""+value+".0")
+
+	return getValue.String()
+}
+
+func GetIndex(json string) uint64 {
+	getIndex := gjson.Get(gjson.Get(json, "#.#").String(), "0")
+
+	return getIndex.Uint()
 }
