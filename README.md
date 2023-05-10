@@ -85,8 +85,7 @@ jobs:
 test case
 
 * *Exists
-  * description: check if terraform resource exist
-  * explanation: a true / false boolean check if the resource could be created
+  * description: check if the terraformresource was created. Returns true or false
 
 * *Show
   * description: check if created terraform resource matches the conditions that should be checked
