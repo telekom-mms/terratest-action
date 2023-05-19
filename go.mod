@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	github.com/gruntwork-io/terratest v0.41.25
-	github.com/stretchr/testify v1.8.2
+	github.com/stretchr/testify v1.8.3
 	github.com/tidwall/gjson v1.14.4
 	gopkg.in/yaml.v3 v3.0.1
 )
