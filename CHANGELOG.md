@@ -1,13 +1,5 @@
 # Changelog
 
-## [1.1.0](https://github.com/telekom-mms/terratest-action/tree/1.1.0) (2023-05-23)
-
-[Full Changelog](https://github.com/telekom-mms/terratest-action/compare/1.0.1...1.1.0)
-
-**Closed issues:**
-
-- Dependency Dashboard [\#3](https://github.com/telekom-mms/terratest-action/issues/3)
-
 ## [1.0.1](https://github.com/telekom-mms/terratest-action/tree/1.0.1) (2023-04-26)
 
 [Full Changelog](https://github.com/telekom-mms/terratest-action/compare/1.0.0...1.0.1)
