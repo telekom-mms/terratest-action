@@ -25,8 +25,13 @@ func GetTerratestSettings(file string) *TerratestSettings {
 	if err != nil {
 		panic(err)
 	}
-	defer f.Close()
 
+	defer func() {
+		if cerr := f.Close(); cerr != nil {
+			panic(cerr)
+		}
+	}()
+	
 	var settings TerratestSettings
 	err = yaml.NewDecoder(f).Decode(&settings)
 	if err != nil {
