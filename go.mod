@@ -2,7 +2,7 @@ module terratest-action
 
 go 1.26
 
-toolchain go1.27.0
+toolchain go1.27.1
 
 require (
 	github.com/gruntwork-io/terratest v0.56.0
