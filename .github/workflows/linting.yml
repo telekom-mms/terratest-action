@@ -9,4 +9,4 @@ on:
 
 jobs:
   call-linting:
-    uses: telekom-mms/.github/.github/workflows/golang_linting.yml@03fc2ef31244b1475f783ee54b2521fa4d3df676 # main
+    uses: telekom-mms/.github/.github/workflows/golang_linting.yml@e8f8b5de81da13503eb8995b80acf3d83a9686b0 # main
