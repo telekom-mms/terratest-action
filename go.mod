@@ -7,7 +7,7 @@ toolchain go1.27.4
 require (
 	github.com/gruntwork-io/terratest v0.56.0
 	github.com/stretchr/testify v1.12.1
-	github.com/tidwall/gjson v1.20.2
+	github.com/tidwall/gjson v1.20.3
 	gopkg.in/yaml.v3 v3.0.1
 )
 
