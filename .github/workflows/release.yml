@@ -8,6 +8,6 @@ on:
 
 jobs:
   call-release:
-    uses: telekom-mms/.github/.github/workflows/release.yml@03fc2ef31244b1475f783ee54b2521fa4d3df676 # main
+    uses: telekom-mms/.github/.github/workflows/release.yml@1f938526523f74e874f95e0bcfa3c88796f48ee5 # main
     secrets:
       GH_BRANCH_PROTECTION_APP_TOKEN: ${{ secrets.GH_BRANCH_PROTECTION_APP_TOKEN }}
